@@ -1,0 +1,79 @@
+Halo, Tutorial kali ini kita akan membuat sebuah project tentang operation file.
+
+Dimana kita bisa membuat, membuka, mengedit, dan menyimpan sebuah file .txt,
+
+Tutorial ini merupakan lanjutan dari tutorial sebelumnya, t
+
+Tutorial ini sangat penting karena operation file ini merupakan tutorial basic pada Visual Studio, dan untuk menuju ke tutorial berikutnya kita akan membuat sebuah project yang jauh lebih sulit, maka dari itu akan lebih mudah jika kita sudah mengerti terlebih dahulu tutorial basic ini.
+
+Oke langsung saja kita praktekkan tutorialnya,,
+
+Pertama, buat project baru namanya terserah anda kemudian silahkan buat design seperti ini,
+gambar
+
+Pada gambar diatas jangan lupa juga untuk menambahkan OpenFileDialog yang terdapat pada toolbox seperti ini,
+gambar
+
+Pada button "Open" isikan code berikut dengan cara klik 2 kali button,
+	Dim openFile As StreamReader
+        OpenFileDialog2.CheckFileExists = True
+        OpenFileDialog2.CheckPathExists = True
+        OpenFileDialog2.DefaultExt = "txt"
+        OpenFileDialog2.FileName = ""
+        OpenFileDialog2.Filter = "test|*.txt"
+        OpenFileDialog2.Multiselect = False
+        If OpenFileDialog2.ShowDialog = Windows.Forms.DialogResult.OK Then
+            openFile = New StreamReader(OpenFileDialog2.FileName, True)
+            Label1.Text = openFile.ReadToEnd
+            Label1.Visible = True
+            RichTextBox1.Visible = False
+            openFile.Close()
+        End If
+Lihat code diatas sesuaikan nama OpenFileDialog nya dalam hal ini saya menggunakan nama OpenFileDialog2
+
+Pada button "Edit" isikan code berikut dengan cara klik 2 kali button,
+	Dim openFile As StreamReader
+        If File.Exists(OpenFileDialog2.FileName) = False Then
+            MessageBox.Show("Open file first")
+        Else
+            openFile = New StreamReader(OpenFileDialog2.FileName, True)
+            RichTextBox1.Text = openFile.ReadToEnd
+            Label1.Visible = False
+            RichTextBox1.Visible = True
+            openFile.Close()
+        End If
+
+Pada button "Save" isikan code berikut dengan cara klik 2 kali button,
+ 	If File.Exists(OpenFileDialog2.FileName) = True Then
+            If RichTextBox1.Text = "" And RichTextBox1.Visible = True Then
+                MessageBox.Show("Cannot save, Text is empty")
+            ElseIf RichTextBox1.Visible = False Then
+                MessageBox.Show("Please click button Edit first")
+            Else
+                If Label1.Text = RichTextBox1.Text Then
+                    MessageBox.Show("Nothing change")
+                Else
+                    Dim writeFile As New StreamWriter(OpenFileDialog2.FileName, False)
+                    writeFile.Write(RichTextBox1.Text)
+                    writeFile.Close()
+                    MessageBox.Show("File Was Write")
+                End If
+            End If
+        ElseIf File.Exists(OpenFileDialog2.FileName) = False Then
+            MessageBox.Show("File txt not found, Open first")
+        End If
+
+Jangan lupa untuk menambahakan code Imports System.IO paling atas seperti ini
+Imports System.IO
+Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+.
+.
+.
+
+Sehingga tampilannya akan tampak seperti ini.
+gambar
+
+Silahkan pahami sendiri codenya,
+
+===DONE!===

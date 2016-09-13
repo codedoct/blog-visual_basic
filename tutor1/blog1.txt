@@ -1,0 +1,89 @@
+hello everyone,,
+
+kali ini saya akan memulai untuk tutorial baru tentang visual studio.
+Visual studio merupakan sebuah sofware yang digunakan untuk membuat sebuh aplikasi console, windows, web dan lain-lain.
+Pertama kali saya belajar Visual Studio adalah pada saat membuat sebuah aplikasi image processing untuk tugas skripsi, hehe..
+Menurut saya belajar Visual Studio ini terbilang sangat mudah, karena pada visual studio itu sendiri ada banyak sekali fitur yang dapat kita manfaatkan,
+Jika Anda pernah belajar Java dan Swift tentu anda akan semakin mudah untuk belajar Visual Studio.
+
+Oke langsung saja kita praktekkan tutorialnya,,
+
+Pada tutorial yang pertama ini kita akan berkenalan terlebih dahulu tentang fitur dari visual studio ini, Visual Studio yang saya gunakan saat ini adalah Visual Studio ultimate 2013.
+Website ini tidak menyediakan software atau aplikasi bajakan!. Jika ingin mendownload bajakannya silahkan download di website ini,
+
+Pertama silahkan buka Visual Studio anda dan buat project baru seperti ini,
+gambar
+
+Dan langsung save saja
+gambar
+
+Selanjutnya buka window design anda jika belum terbuka klik disini
+gambar
+
+Silahkan buat design form seperti ini,
+gambar
+
+Jika sudah selesai, klik 2 kali checkbox1 pada design dan isikan code berikut
+        If CheckBox1.Checked = True Then
+            TextBox1.Enabled = True
+        ElseIf CheckBox1.Checked = False Then
+            TextBox1.Enabled = False
+        End If
+perhatikan pada code diatas TextBox1 sudah diset propertiesnya enabled = false untuk mengatur properties lihat disini
+gambar
+
+Selanjutnya klik 2 kali CheckBox2 pada design dan isikan code berikut
+        If CheckBox2.Checked = True Then
+            TextBox2.Visible = True
+        ElseIf CheckBox2.Enabled = False Then
+            TextBox2.Visible = False
+        End If
+Pada code diatas TextBox2 sudah diset visible = false
+
+Terakhir klik 2 kali button1 pada design dan isikan code berikut
+        If (CheckBox1.Checked = True And CheckBox2.Checked = True) Then
+            MessageBox.Show("Semua sudah di check")
+        Else
+            MessageBox.Show("Semua CheckBox Harus Dicheck")
+        End If
+
+Tampilan seluruh codenya akan tampak seperti ini,
+Public Class Form1
+
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked = True Then
+            TextBox1.Enabled = True
+        ElseIf CheckBox1.Checked = False Then
+            TextBox1.Enabled = False
+        End If
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        If CheckBox2.Checked = True Then
+            TextBox2.Visible = True
+        ElseIf CheckBox2.Enabled = False Then
+            TextBox2.Visible = False
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If (CheckBox1.Checked = True And CheckBox2.Checked = True) Then
+            MessageBox.Show("Semua sudah di check")
+        Else
+            MessageBox.Show("Semua CheckBox Harus Dicheck")
+        End If
+    End Sub
+End Class
+
+
+Sehingga saat anda Start dengan klik tombol ini,
+gambar
+
+Tampilan akhirnya akan menjadi seperti ini,
+gambar
+
+Mudah bukan?,,
+Jika ada yang ingin ditanyakan silahkan contact us,
+
+===DONE!===
